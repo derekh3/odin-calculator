@@ -11,6 +11,8 @@ button {
     border: none;
     background-color: antiquewhite;
     border-radius: 3px;
+    font-size: 1.2em;
+    cursor: pointer;
 }
 
 button:hover {
