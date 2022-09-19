@@ -1,4 +1,4 @@
-html {
+body {
     margin: 0;
     box-sizing: border-box;
 }
@@ -10,6 +10,7 @@ button {
     flex: 1;
     border: none;
     background-color: antiquewhite;
+    border-radius: 3px;
 }
 
 button:hover {
@@ -36,10 +37,11 @@ button:hover {
 
 .calculator {
     background-color: cadetblue;
-    padding: 10px 0px;
+    padding: 0px 0px 10px 0px;
     width: 300px;
     height: auto;
     border: 3px solid grey;
+    border-radius: 8px;
 }
 
 .display {
@@ -48,7 +50,8 @@ button:hover {
     background-color: white;
     width: 240px;
     height: 60px;
-    margin: 10px auto;
+    margin: 15px auto;
+    border-radius: 5px;
 }
 
 .top-display {
@@ -88,6 +91,11 @@ button:hover {
 
 .footer {
     margin: 0;
-    background-color: black;
+    background-color: lightblue;
     flex: .2;
+    display: flex;
+    min-width: 100vw;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 20px 0;
 }
