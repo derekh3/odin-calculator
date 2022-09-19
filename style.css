@@ -1,0 +1,93 @@
+html {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+button {
+    margin: 0;
+    width: 60px;
+    height: 35px;
+    flex: 1;
+    border: none;
+    background-color: antiquewhite;
+}
+
+button:hover {
+    filter: brightness(.9);
+}
+
+.main {
+    background-color: lightblue;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    width: 100vw;
+    min-height: 100vh;
+}
+
+.calculator-container {
+    margin: 0;
+    background-color: lightblue;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator {
+    background-color: cadetblue;
+    padding: 10px 0px;
+    width: 300px;
+    height: auto;
+    border: 3px solid grey;
+}
+
+.display {
+    padding: 5px 10px;
+    text-align: right;
+    background-color: white;
+    width: 240px;
+    height: 60px;
+    margin: 10px auto;
+}
+
+.top-display {
+    height: 1em;
+}
+
+.bottom-display {
+    margin: 5px 0px;
+    font-size: 2.3em;
+}
+
+.rows {
+    width: 280px;
+    /* border: 5px solid black; */
+    margin: 5px auto;
+}
+
+.row:nth-of-type(1) button {
+    width: 120 px;
+    background-color: honeydew;
+}
+
+#divide,
+#multiply,
+#subtract,
+#add {
+    background-color: rgb(215, 167, 167);
+}
+
+.row {
+    margin: 10px auto;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 10px;
+    padding: 0px 10px;
+}
+
+.footer {
+    margin: 0;
+    background-color: black;
+    flex: .2;
+}
