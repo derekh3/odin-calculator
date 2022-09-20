@@ -13,13 +13,15 @@ function truncate(number) {
         if (beforeDecimal === -1) {
             beforeDecimal = numberStr.length;
         }
+
+        //roomToSpare is how many places after the decimal point we can keep
         let roomToSpare = maxLength - beforeDecimal;
-        console.log(roomToSpare);
         if (roomToSpare < 0 && number > 0) {
             return 999999999;
         } else if (roomToSpare < 0 && number < 0) {
             return -999999999;
         }
+
         return number.toFixed(roomToSpare);
     } else {
         return number;
@@ -47,20 +49,20 @@ function clearAll() {
     previousIsOperator = false;
 }
 
+//Select elements
 const topDisplay = document.querySelector(".top-display");
 const bottomDisplay = document.querySelector(".bottom-display");
 const numbers = document.querySelectorAll(".number");
 const del = document.querySelector("#delete");
 const clear = document.querySelector("#clear");
-
 const divide = document.querySelector("#divide");
 const multiply = document.querySelector("#multiply");
 const add = document.querySelector("#add");
 const subtract = document.querySelector("#subtract");
-
 const equals = document.querySelector("#equals");
 const decimal = document.querySelector("#decimal");
 
+//Add event listeners for number buttons
 for (let number of numbers) {
     number.addEventListener("click", (e) => {
         if (bottomDisplay.innerText.length < maxLength) {
@@ -82,6 +84,7 @@ for (let number of numbers) {
     });
 }
 
+//Add event listener for delete button (backspace button)
 del.addEventListener("click", (e) => {
     const text = bottomDisplay.innerText;
     bottomDisplay.innerText = text.slice(0, text.length - 1);
@@ -89,10 +92,12 @@ del.addEventListener("click", (e) => {
     previousIsOperator = false;
 });
 
+//Add event listener for clear button
 clear.addEventListener("click", (e) => {
     clearAll();
 });
 
+//Function that is called when an operator (+,-,/,*) is pressed
 function updateWithOperator(newOperator) {
     if (!previousIsOperator) {
         if (whichNumber === 1) {
@@ -158,6 +163,8 @@ equals.addEventListener("click", () => {
             topDisplay.innerText = topDisplay.innerText + " " + bottomDisplayValue + " = ";
             bottomDisplay.innerText = `${truncate(result)}`;
             bottomDisplayValue = result;
+
+            //Update tracking variables
             whichNumber = 1;
             firstNumber = result;
             refreshDisplay = true;
