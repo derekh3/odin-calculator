@@ -47,6 +47,7 @@ function clearAll() {
     whichNumber = 1;
     operator = "";
     previousIsOperator = false;
+    decimal.disabled = false;
 }
 
 //Select elements
@@ -120,12 +121,12 @@ function updateWithOperator(newOperator) {
     } else {
         topDisplay.innerText = topDisplay.innerText.slice(0, -1) + " " + newOperator;
     }
+
+    //Update tracking variables
     operator = newOperator;
     refreshDisplay = true;
     previousIsOperator = true;
-    if (!bottomDisplay.innerText.includes(".")) {
-        decimal.disabled = false;
-    }
+    decimal.disabled = false;
 }
 
 divide.addEventListener("click", () => {
@@ -178,12 +179,15 @@ decimal.addEventListener("click", () => {
     if (refreshDisplay === true) {
         bottomDisplay.innerText = "0.";
         refreshDisplay = false;
+        decimal.disabled = true;
+        console.log(decimal.disabled);
     } else {
         if (bottomDisplay.innerText.includes(".")) {
             return;
         } else {
             bottomDisplay.innerText = bottomDisplay.innerText + ".";
             decimal.disabled = true;
+            console.log(decimal.disabled);
         }
     }
 });

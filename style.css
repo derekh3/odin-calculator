@@ -20,6 +20,11 @@ button:hover {
     filter: brightness(.9);
 }
 
+button:hover:disabled {
+    filter: brightness(1);
+    cursor: default;
+}
+
 .main {
     background-color: lightblue;
     display: flex;
