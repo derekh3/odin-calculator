@@ -7,7 +7,6 @@ let maxLength = 9;
 let previousIsOperator = false;
 
 function truncate(number) {
-    let place = 100;
     let numberStr = number.toString();
     if (numberStr.length > maxLength) {
         let beforeDecimal = numberStr.indexOf(".");
@@ -25,10 +24,8 @@ function truncate(number) {
     } else {
         return number;
     }
-    // if (Number(numberStr.replace(".", "")) > place) {
-    //     return Math.round(Number(numberStr) * place) / place;
-    // }
 }
+
 function getResult(a, b, operator) {
     if (operator === "*") {
         return a * b;
@@ -40,6 +37,7 @@ function getResult(a, b, operator) {
         return a - b;
     }
 }
+
 function clearAll() {
     bottomDisplay.innerText = "0";
     bottomDisplayValue = 0;
@@ -150,12 +148,12 @@ subtract.addEventListener("click", () => {
 
 equals.addEventListener("click", () => {
     if (whichNumber === 2 && !refreshDisplay) {
+        bottomDisplayValue = Number(bottomDisplay.innerText);
         if (bottomDisplayValue === 0 && operator === "/") {
             alert("Can't divide by 0!")
             clearAll();
         } else {
-            console.log("triggered");
-            bottomDisplayValue = Number(bottomDisplay.innerText);
+
             let result = getResult(firstNumber, bottomDisplayValue, operator);
             topDisplay.innerText = topDisplay.innerText + " " + bottomDisplayValue + " = ";
             bottomDisplay.innerText = `${truncate(result)}`;
