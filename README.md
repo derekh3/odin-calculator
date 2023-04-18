@@ -1,3 +1,3 @@
 # odin-calculator
 
-Live Demo: https://derekleehuang.github.io/odin-calculator/index.html
+Live Demo: https://derekh3.github.io/odin-calculator/index.html
